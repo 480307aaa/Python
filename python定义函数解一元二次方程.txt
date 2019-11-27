@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import math
 def quadratic(a,b,c):
     y1=-b
