@@ -1,0 +1,27 @@
+
+#定义一个迭代序列，从3开始
+def item():
+	n=1
+	while True:
+		n=n+2
+		yield n
+		
+#定义筛选条件，提出n以及n的整数倍		
+def not_divisiable(n):
+	return lambda x :x%n>0
+	
+#定义prime函数，得到所有的素数集合，注意prime()结果是一个生成器，需要迭代拿到其中的元素
+def prime():
+	yield 2
+	el=item()
+	while True:
+		num=next(el)
+		yield num
+		el=filter(not_divisiable(num),el)
+		
+#取出惰性序列中的元素		
+for n in prime():
+	if n<1000:
+		print(n)
+	else:
+		break
