@@ -1,0 +1,22 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+#当函数的参数个数太多，需要简化时，使用functools.partial可以创建一个新的函数，这个新函数可以固定住原函数的部分参数，从而在调用时更简单
+
+#定义一个base确定的禁止转换
+import functools
+int2=functools.partial(int,base=2)
+int2('10010')
+
+#上面的定义相当于
+def int2(x,base=2):
+	return int(x,base=2)
+int2('10010')
+
+#还相当于
+kw={'base':2}
+int('10010',**kw)
+
+
+
+
